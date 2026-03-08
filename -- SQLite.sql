@@ -23,7 +23,8 @@ SELECT teacher_name, room_id FROM Class
      JOIN Teacher ON Class.teacher_id = Teacher.teacher_id
 WHERE room_id = 43 or room_id = 44;
 
-SELECT student_id, class_id FROM StudentClass
-    INNER
-     JOIN Student ON StudentClass.student_id = Student.student_id
-WHERE class_id = 44;
+SELECT StudentClass.student_id, Class.room_id
+FROM StudentClass
+    INNER JOIN Student ON StudentClass.student_id = Student.student_id
+    INNER JOIN Class ON StudentClass.class_id = Class.class_id
+WHERE Class.room_id = 44;
